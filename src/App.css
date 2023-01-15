@@ -36,26 +36,67 @@ nav {
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(1, 2fr);
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  grid-template-areas: 
+   "rectangle rectangle box1 box1"
+   "rectangle rectangle box1 box1"
+   "rectangle rectangle box2 box2"
+   "rectangle rectangle box2 box2"
+   "rectangle rectangle box3 box4"
+   "rectangle rectangle box3 box4"
+  ;
   grid-gap: 2rem;
   padding: 2rem 5rem;
-  border: 6px solid green;
+  height: calc(100vh - 10rem);
+  
+}
+
+@media (max-width:1600px) {
+  .grid {  
+    display: flex;
+    flex-direction: column;
+    height: auto;
+  }
+  
+}
+
+@media (max-width:650px) {
+  .grid {  
+    padding: 2px;
+
+  }
+  
+}
+
+@media (min-width:1700px) {
+  .grid {  
+    max-width: 3000px;
+    margin: auto;
+
+  }
   
 }
 
 .rectangle {
   grid-row-start: span 3;
   border: 2px solid black;
-  /* padding: 20px; */
-  grid-column-start: 1;
-  grid-column-end: -41;
-  grid-row-start: 1;
-  grid-row-end: 4;
+  grid-area: rectangle;
   position: relative;
   border-radius: 15px;
   box-shadow: 6px 8px;
   color: #251811;
-  
+  overflow-x: hidden;
+  overflow-y: auto;
+  display:flex;
+  flex-direction: column;
+  justify-content: start;
+  padding: 0 1rem 1rem;
+  gap: 1rem;
+}
+
+.rectangle iframe:first-of-type {
+  margin-top: -1rem;
 }
 
 
@@ -74,68 +115,73 @@ nav {
 }
 
 .squareone {
-  height: 13rem;
+
   border: 2px solid black;
   max-width: 100%;
   overflow: hidden;
   border-radius: 15px;
   box-shadow: 6px 8px;
   color: #251811;
+  grid-area: box1;
   
 }
 
 .squaretwo {
-  height: 13rem;
+
   border: 2px solid black;
   max-width: 100%;
   overflow: hidden;
   border-radius: 15px;
   box-shadow: 6px 8px;
   color: #251811;
+  grid-area: box2;
 }
 
-.bottomsquares {
-  display: flex;
-  flex-direction: row;
-  gap:2rem;
 
-}
 
 .squarethree {
-  height: 18rem;
+
   border: 2px solid black;
   margin: 0px;
-  width: 35rem;
   border-radius: 15px;
   box-shadow: 6px 8px;
   color: #251811;
+  grid-area: box3;
   
 
 }
 
 .squarefour {
-  height: 18rem;
+
   border: 2px solid black;
   margin: 0px;
-  width: 35rem;
   border-radius: 15px;
   box-shadow: 6px 8px;
   color: #251811;
+  grid-area: box4;
+  display: flex;
+  flex-direction: column;
+
 
 }
 
+
+
 .collections {
-  margin-left: 1.5rem;
+
   color: black;
   border: 2px solid black;
-  margin: 20px;
-  width: 16%;
+
+  width: max-content;
   height: 40px;
   border-radius: 10px;
   background-color: #fdfd00;
   box-shadow: 3px 4px;
   text-align: center;
+  padding: 0 1rem;
 }
+
+
 
 .benefit-alerts {
   margin-left: 1.5rem;
@@ -143,12 +189,13 @@ nav {
   /* color: #251811; */
   border: 2px solid black;
   margin: 20px;
-  width: 16%;
+  width: max-content;
   height: 40px;
   border-radius: 10px;
   background-color: #00eaff;
   box-shadow: 3px 4px;
   text-align: center;
+  padding: 0 1rem;
 }
 
 .message {
@@ -156,12 +203,13 @@ nav {
   color: black;
   border: 2px solid black;
   margin: 20px;
-  width: 16%;
+  width: max-content;
   height: 40px;
   border-radius: 10px;
   background-color: #ff6b6b;
   box-shadow: 3px 4px;
   text-align: center;
+  padding: 0 1rem;
 }
 
 .floor-price {
@@ -169,12 +217,13 @@ nav {
   color: black;
   border: 2px solid black;
   margin: 20px;
-  width: 40%;
+  width: max-content;
   height: 40px;
   border-radius: 10px;
   background-color: #FFA500;
   box-shadow: 3px 4px;
   text-align: center;
+  padding: 0 1rem;
 }
 
 .sport-news {
@@ -182,57 +231,42 @@ nav {
   color: black;
   border: 2px solid black;
   margin: 20px;
-  width: 80%;
-  height: 40px;
+  width: auto;
   border-radius: 10px;
   background-color: #5a5afb;
   box-shadow: 3px 4px;
   text-align: center;
+  padding: 0 1rem 0.5rem;
 }
 
-.twitter-timeline {
-  width: 1000px;
-}
+
 
 .paragraph {
   margin-left: 2rem;
   color: aliceblue;
 }
 
+.twitter-padding{
+  height:calc(100% - 8rem);
+}
 
+.twitter-wrapper{
+  padding: 1rem;
+  height:100%
 
+}
 
+.twitter-timeline {
+  height:100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  border-radius: 12px;
 
+} 
 
+@media (max-width:1600px) {
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* .top-menu {
- 
-  justify-content: space-between; 
-  align-items: center;
-  display: flex;
-} */
-
-/* @media screen and (max-width: 700px) {
-  .top-menu {
-    gap: 1rem; 
-    flex-direction: column;
-    padding: 10px;
+  .twitter-timeline{
+    max-height: 400px;
   }
-  
-  nav {
-    width: max-content;
-  }
-} */
+}
