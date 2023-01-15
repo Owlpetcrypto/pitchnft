@@ -1,38 +1,238 @@
 .App {
+  text-align: start;
+  font-family: 'UTM Helve','Verdana', 'Arial', 'Helvetica', 'sans-serif';
+  color: white;
+  font-size: 16px;
+  overflow: auto;
+}
+
+
+nav {
+
+  background-color: #7de279;
+  color: #251811;
+  margin: 20px auto;
+  width: 90%;
+  height: 50px;
+  border-radius: 10px;
+  box-shadow: 6px 8px;
+  display: flex;
+  justify-content: space-between;
+
+
+}
+
+.PitchLogo {  
+
+  margin-left: 10px;
+  margin-top: 2px;
+}
+
+.SocialLogo {
+  margin-top: 6%;
+  height: 90%;
+  margin-right: 10%;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(1, 2fr);
+  grid-gap: 2rem;
+  padding: 2rem 5rem;
+  border: 6px solid green;
+  
+}
+
+.rectangle {
+  grid-row-start: span 3;
+  border: 2px solid black;
+  /* padding: 20px; */
+  grid-column-start: 1;
+  grid-column-end: -41;
+  grid-row-start: 1;
+  grid-row-end: 4;
+  position: relative;
+  border-radius: 15px;
+  box-shadow: 6px 8px;
+  color: #251811;
+  
+}
+
+
+.nfts {
+  width: 100%;
+  height: 50%;
+  border-radius: 12px;
+  border: 2px solid black;
+}
+
+.twitter-feed{
+  border:0;
+   
+    height:250;
+     width:550;
+}
+
+.squareone {
+  height: 13rem;
+  border: 2px solid black;
+  max-width: 100%;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 6px 8px;
+  color: #251811;
+  
+}
+
+.squaretwo {
+  height: 13rem;
+  border: 2px solid black;
+  max-width: 100%;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 6px 8px;
+  color: #251811;
+}
+
+.bottomsquares {
+  display: flex;
+  flex-direction: row;
+  gap:2rem;
+
+}
+
+.squarethree {
+  height: 18rem;
+  border: 2px solid black;
+  margin: 0px;
+  width: 35rem;
+  border-radius: 15px;
+  box-shadow: 6px 8px;
+  color: #251811;
+  
+
+}
+
+.squarefour {
+  height: 18rem;
+  border: 2px solid black;
+  margin: 0px;
+  width: 35rem;
+  border-radius: 15px;
+  box-shadow: 6px 8px;
+  color: #251811;
+
+}
+
+.collections {
+  margin-left: 1.5rem;
+  color: black;
+  border: 2px solid black;
+  margin: 20px;
+  width: 16%;
+  height: 40px;
+  border-radius: 10px;
+  background-color: #fdfd00;
+  box-shadow: 3px 4px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.benefit-alerts {
+  margin-left: 1.5rem;
+  color: black;
+  /* color: #251811; */
+  border: 2px solid black;
+  margin: 20px;
+  width: 16%;
+  height: 40px;
+  border-radius: 10px;
+  background-color: #00eaff;
+  box-shadow: 3px 4px;
+  text-align: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.message {
+  margin-left: 1.5rem;
+  color: black;
+  border: 2px solid black;
+  margin: 20px;
+  width: 16%;
+  height: 40px;
+  border-radius: 10px;
+  background-color: #ff6b6b;
+  box-shadow: 3px 4px;
+  text-align: center;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+.floor-price {
+  margin-left: 1.5rem;
+  color: black;
+  border: 2px solid black;
+  margin: 20px;
+  width: 40%;
+  height: 40px;
+  border-radius: 10px;
+  background-color: #FFA500;
+  box-shadow: 3px 4px;
+  text-align: center;
+}
+
+.sport-news {
+  margin-left: 1.5rem;
+  color: black;
+  border: 2px solid black;
+  margin: 20px;
+  width: 80%;
+  height: 40px;
+  border-radius: 10px;
+  background-color: #5a5afb;
+  box-shadow: 3px 4px;
+  text-align: center;
+}
+
+.twitter-timeline {
+  width: 1000px;
+}
+
+.paragraph {
+  margin-left: 2rem;
+  color: aliceblue;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* .top-menu {
+ 
+  justify-content: space-between; 
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+  display: flex;
+} */
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* @media screen and (max-width: 700px) {
+  .top-menu {
+    gap: 1rem; 
+    flex-direction: column;
+    padding: 10px;
   }
-  to {
-    transform: rotate(360deg);
+  
+  nav {
+    width: max-content;
   }
-}
+} */
