@@ -60,7 +60,7 @@ const Main = ({ accounts, setAccounts }) => {
       </div>
 
       <div className="squarefour">
-        <h2 className="sport-news">Sport NFT News/ Upcoming Mints</h2>
+        <h2 className="sport-news">Upcoming News</h2>
         <div className="twitter-padding">
           <div className="twitter-wrapper">
             <a
