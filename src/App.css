@@ -50,6 +50,14 @@ nav {
 
 }
 
+@media (max-width:800px) {
+  .connect-button  {  
+    font-size: 0.6rem;
+    margin-left: 0.5rem;
+    height: 2rem;
+  }
+}
+
 button:hover{background-color:orange;}
 
 .please-connect {

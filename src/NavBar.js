@@ -43,9 +43,7 @@ const NavBar = ({ accounts, setAccounts }) => {
           <Image className="SocialLogo" src={Twitter} />
         </Link>
         {isConnected ? (
-          <Box margin="auto" marginLeft="8px">
-            Connected
-          </Box>
+          <Box className="connect-button">Connected</Box>
         ) : (
           <Button className="connect-button" onClick={connectAccount}>
             Connect
