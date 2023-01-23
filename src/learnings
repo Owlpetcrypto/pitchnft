@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react'
 
 function Main({ accounts, setAccounts }) {
   const [data, setData] = useState([])
-  const [collections, setCollections] = useState([])
   const isConnected = Boolean(accounts[0])
 
   // useEffect(() => {
@@ -35,85 +34,35 @@ function Main({ accounts, setAccounts }) {
     }
   }, [accounts, isConnected])
 
-  useEffect(() => {
-    const getCollection = (_account, slug) => {
-      const options = { method: 'GET', headers: { accept: 'application/json' } }
-
-      return fetch(`https://api.opensea.io/api/v1/collection/${slug}`, options)
-        .then((response) => response.json())
-        .then((response) => response.collection)
-        .catch((err) => console.error(err))
-    }
-    if (isConnected) {
-      const slugs = [
-        'vaynersports-pass-vsp',
-        'pitch-og-pass',
-        'wagmiunited',
-        'cool-cats-fc',
-        'mpl-official',
-        'metasoccer-youth-scouts',
-        'firstevernft',
-        'footium-football-clubs',
-        'rtfkt-x-nike-football-jersey',
-        'sorare-football-national-series',
-        'draftkings-primetime-nft-series',
-        'artofbasketball',
-        'sportsbots',
-        'lion-club',
-      ]
-
-      Promise.all(
-        slugs.map((element) => {
-          return getCollection(accounts[0], element)
-        }),
-      ).then((collections) => {
-        console.log(collections)
-        setCollections(collections)
-      })
-    }
-  }, [accounts, isConnected])
-
   return (
     <div className="grid">
       <div className="rectangle">
         <div className="wrap-text">
           <h2 className="collections">Collections</h2>
         </div>
+        {/* <p>{accounts}</p> */}
         {isConnected ? (
           <>
             {data
-              // .filter((asset) => {
-              //   const collection = [
-              //     'broadside-episodes',
-              //     'h4h-unilever',
-              //     'vaynersports-pass-vsp',
-              //     'pitch-og-pass',
-              //     'wagmiunited',
-              //     'cool-cats-fc',
-              //     'mpl-official',
-              //     'metasoccer-youth-scouts',
-              //     'firstevernft',
-              //     'footium-football-clubs',
-              //     'rtfkt-x-nike-football-jersey',
-              //     'sorare-football-national-series',
-              //     'draftkings-primetime-nft-series',
-              //     'artofbasketball',
-              //     'sportsbots',
-              //     'lion-club',
-              //   ]
-              //   return collection.includes(asset.collection.slug)
-              // })
+              .filter((asset) => {
+                const collection = ['broadside-episodes', 'h4h-unilever']
+                if (collection.includes(asset.collection.slug)) {
+                  return true
+                }
+              })
               .map((nft) => {
                 return (
                   <div className="collection-card">
                     <img className="asset-image" src={nft.image_url} />
-                    <p>{nft.name}</p>
+                    <h4>{nft.name}</h4>
+
+                    {/* <p>{nft.token_id}</p> */}
                   </div>
                 )
               })}
           </>
         ) : (
-          <h2 className="please-connect">Please connect wallet</h2>
+          <p>Need to connect</p>
         )}
       </div>
 
@@ -137,25 +86,10 @@ function Main({ accounts, setAccounts }) {
       </div>
 
       <div className="squarethree">
-        <div className="wrap-text">
-          <h2 className="floor-price"> Sport NFT FPs</h2>
-        </div>
+        <h2 className="floor-price"> Sport NFT FPs</h2>
         <div>
-          {isConnected ? (
-            <>
-              {collections.map((collection) => {
-                return (
-                  <div className="watchlist-bg">
-                    <div className="collection-watchlist">
-                      {collection.name}: {collection.stats.floor_price} ETH
-                    </div>
-                  </div>
-                )
-              })}
-            </>
-          ) : (
-            <h2></h2>
-          )}
+          {/* <button onClick={getData}>getData</button>
+           */}
         </div>
       </div>
 

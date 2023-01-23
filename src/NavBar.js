@@ -11,6 +11,8 @@ import Opensea from './assets/opensea_button.png'
 import Discord from './assets/discord_button.png'
 import Twitter from './assets/twitter_button.png'
 import Pitchlogo from './assets/pitch_soccer_logo.png'
+import { ethers } from 'ethers'
+import { useState } from 'react'
 
 const NavBar = ({ accounts, setAccounts }) => {
   const isConnected = Boolean(accounts[0])
@@ -40,15 +42,16 @@ const NavBar = ({ accounts, setAccounts }) => {
         <Link href="https://twitter.com/pitchweb3">
           <Image className="SocialLogo" src={Twitter} />
         </Link>
+        {isConnected ? (
+          <Box margin="auto" marginLeft="8px">
+            Connected
+          </Box>
+        ) : (
+          <Button className="connect-button" onClick={connectAccount}>
+            Connect
+          </Button>
+        )}
       </Flex>
-      {/* Connect */}
-      {/* {isConnected ? (
-              <Box margin="0 30px">Connect</Box>
-            ) : (
-              <Button className="connect-button" onClick={connectAccount}>
-                Connect
-              </Button>
-            )} */}
     </nav>
   )
 }
