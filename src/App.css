@@ -170,7 +170,6 @@ button:hover{background-color:orange;}
 }
 
 .nft-name{
-
   width: 9rem;
 }
 
@@ -232,11 +231,12 @@ button:hover{background-color:orange;}
   overflow-x: hidden;
   overflow-y: auto;
   display: flex;
-  /* flex-direction: row; */
+  flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
-  /* align-content: flex-start;  */
+  align-content: flex-start; 
   align-items: center;
+
 }
 
 .floor-price {
@@ -253,23 +253,19 @@ button:hover{background-color:orange;}
   padding: 0 1rem;
 }
 
-.watchlist-bg {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  /* background-color: white; */
+.fp-list {
+  background-color: white;
   text-align: center;
-  /* box-shadow: 3px 4px; */
-  /* border-radius: 10px; */
-  /* border: 2px solid black; */
+  box-shadow: 3px 4px;
+  border-radius: 10px;
+  border: 2px solid black;
+  width: 21rem;
 }
 
 .collection-watchlist {
-  color: white;
+  color: black;
   padding: 10px;
-  /* display: flex;
-  justify-content:center;
-  text-align: center; */
+  text-align: center;
   }
 
 .squarefour {

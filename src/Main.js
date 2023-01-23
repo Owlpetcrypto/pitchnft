@@ -140,23 +140,20 @@ function Main({ accounts, setAccounts }) {
         <div className="wrap-text">
           <h2 className="floor-price"> Sport NFT FPs</h2>
         </div>
-        <div>
-          {isConnected ? (
-            <>
-              {collections.map((collection) => {
-                return (
-                  <div className="watchlist-bg">
-                    <div className="collection-watchlist">
-                      {collection.name}: {collection.stats.floor_price} ETH
-                    </div>
-                  </div>
-                )
-              })}
-            </>
-          ) : (
-            <h2></h2>
-          )}
-        </div>
+
+        {isConnected ? (
+          <div className="fp-list">
+            {collections.map((collection) => {
+              return (
+                <div className="collection-watchlist">
+                  {collection.name}: {collection.stats.floor_price} ETH
+                </div>
+              )
+            })}
+          </div>
+        ) : (
+          <h2></h2>
+        )}
       </div>
 
       <div className="squarefour">
