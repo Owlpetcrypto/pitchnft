@@ -107,7 +107,7 @@ function Main({ accounts, setAccounts }) {
                 return (
                   <div className="collection-card">
                     <img className="asset-image" src={nft.image_url} />
-                    <p>{nft.name}</p>
+                    <p className="nft-name">{nft.name}</p>
                   </div>
                 )
               })}
