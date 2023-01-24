@@ -47,7 +47,6 @@ nav {
   margin: auto;
   margin-left: 1rem;
   margin-right: 1rem;
-
 }
 
 @media (max-width:800px) {
@@ -267,7 +266,7 @@ button:hover{background-color:orange;}
   box-shadow: 3px 4px;
   border-radius: 10px;
   border: 2px solid black;
-  width: 21rem;
+  width: 29rem;
 }
 
 .collection-watchlist {

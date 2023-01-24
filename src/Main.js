@@ -82,27 +82,27 @@ function Main({ accounts, setAccounts }) {
         {isConnected ? (
           <>
             {data
-              // .filter((asset) => {
-              //   const collection = [
-              //     'broadside-episodes',
-              //     'h4h-unilever',
-              //     'vaynersports-pass-vsp',
-              //     'pitch-og-pass',
-              //     'wagmiunited',
-              //     'cool-cats-fc',
-              //     'mpl-official',
-              //     'metasoccer-youth-scouts',
-              //     'firstevernft',
-              //     'footium-football-clubs',
-              //     'rtfkt-x-nike-football-jersey',
-              //     'sorare-football-national-series',
-              //     'draftkings-primetime-nft-series',
-              //     'artofbasketball',
-              //     'sportsbots',
-              //     'lion-club',
-              //   ]
-              //   return collection.includes(asset.collection.slug)
-              // })
+              .filter((asset) => {
+                const collection = [
+                  // 'broadside-episodes',
+                  // 'h4h-unilever',
+                  'vaynersports-pass-vsp',
+                  'pitch-og-pass',
+                  'wagmiunited',
+                  'cool-cats-fc',
+                  'mpl-official',
+                  'metasoccer-youth-scouts',
+                  'firstevernft',
+                  'footium-football-clubs',
+                  'rtfkt-x-nike-football-jersey',
+                  'sorare-football-national-series',
+                  'draftkings-primetime-nft-series',
+                  'artofbasketball',
+                  'sportsbots',
+                  'lion-club',
+                ]
+                return collection.includes(asset.collection.slug)
+              })
               .map((nft) => {
                 return (
                   <div className="collection-card">
