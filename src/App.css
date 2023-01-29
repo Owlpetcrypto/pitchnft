@@ -47,6 +47,7 @@ nav {
   margin: auto;
   margin-left: 1rem;
   margin-right: 1rem;
+  padding: 0px 2.5px;
 }
 
 @media (max-width:800px) {
@@ -171,13 +172,21 @@ button:hover{background-color:orange;}
   flex-direction: row;
   justify-content: flex-start;
   border-radius: 12px;
-  /* background-color: white;
-  box-shadow: 3px 4px; */
-  text-align: center;
 }
 
-.nft-name{
-  width: 9rem;
+.nft-name-block{
+  display: flex;
+  flex-direction: column;
+  width: 9rem; 
+  overflow-wrap: break-word;
+}
+
+.collection-name {
+
+}
+
+.style-name {
+  margin-bottom: 3px;
 }
 
 .squareone {
@@ -261,19 +270,35 @@ button:hover{background-color:orange;}
 }
 
 .fp-list {
+  width: 100vw;
+  padding: 0rem 1rem;
+
+}
+
+.collection-watchlist {
+
+  margin: 10px;
+  }
+
+  .floor-price-box {
   background-color: white;
   text-align: center;
   box-shadow: 3px 4px;
   border-radius: 10px;
   border: 2px solid black;
-  width: 29rem;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 0.3rem;
+  }
+
+.col1 {
+  font-size: 0.9rem;
 }
 
-.collection-watchlist {
-  color: black;
-  padding: 10px;
-  text-align: center;
-  }
+.col2 {
+  font-size: 0.9rem;
+}
+
 
 .squarefour {
   border: 2px solid black;
