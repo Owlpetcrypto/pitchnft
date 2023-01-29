@@ -115,13 +115,12 @@ function Main({ accounts, setAccounts }) {
               })
               .map((nft) => {
                 return (
-                  <div>
-                    <span> {nft.collection.name}</span>
-                    <div className="collection-card">
-                      <img className="asset-image" src={nft.image_url} />
-                      <div className="nft-name-block">
-                        <p className="style-name">{nft.name}</p>
-                      </div>
+                  <div className="collection-card">
+                    <img className="asset-image" src={nft.image_url} />
+                    <div className="nft-name-block">
+                      <p className="collection-name">{nft.collection.name}</p>
+                      {/* Sorting my collection.name should do the trick? */}
+                      <p className="style-name">{nft.name}</p>
                     </div>
                   </div>
                 )
