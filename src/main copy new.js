@@ -1,10 +1,10 @@
 import './App.css'
 import { useEffect, useState } from 'react'
-import AssetCards from './AssetCards'
 
 function Main({ accounts, setAccounts }) {
   const [data, setData] = useState([])
   const [collections, setCollections] = useState([])
+  const [assets, setAssets] = useState([])
   const isConnected = Boolean(accounts[0])
 
   // useEffect(() => {
@@ -15,7 +15,7 @@ function Main({ accounts, setAccounts }) {
   // }, [])
 
   useEffect(() => {
-    const getData = (_account) => {
+    const getData = (_account, _contractAddress) => {
       const options = {
         method: 'GET',
         headers: {
@@ -25,19 +25,32 @@ function Main({ accounts, setAccounts }) {
       }
 
       fetch(
-        `https://api.opensea.io/api/v1/assets?owner=${_account}&order_direction=desc&limit=20&include_orders=false`,
+        `https://api.opensea.io/api/v1/assets?owner=${_account}&asset_contract_address=${_contractAddress}&include_orders=false`,
         options,
       )
         .then((response) => response.json())
         .then((response) => {
           setData(response.assets)
           console.log(response)
+          // return response.assets
         })
         .catch((err) => console.error(err))
     }
 
     if (isConnected) {
-      getData(accounts[0])
+      // getData(accounts[0])
+      const contractAddresses = [
+        '0x57f1887a8bf19b14fc0df6fd9b2acc9af147ea85',
+        '0x50297fc5c3866e04181EB166c585AE24E2986957',
+      ]
+      Promise.all(
+        contractAddresses.map((element) => {
+          return getData(accounts[0], element)
+        }),
+      ).then((assets) => {
+        console.log(assets)
+        setAssets(assets)
+      })
     }
   }, [accounts, isConnected])
 
@@ -87,7 +100,42 @@ function Main({ accounts, setAccounts }) {
           <h2 className="collections">Collections</h2>
         </div>
         {isConnected ? (
-          <AssetCards assets={data}></AssetCards>
+          <>
+            {data
+              // .filter((asset) => {
+              //   const collection = [
+              //     'broadside-episodes',
+              //     'h4h-unilever',
+              //     'vaynersports-pass-vsp',
+              //     'pitch-og-pass',
+              //     'wagmiunited',
+              //     'cool-cats-fc',
+              //     'mpl-official',
+              //     'metasoccer-youth-scouts',
+              //     'firstevernft',
+              //     'footium-football-clubs',
+              //     'rtfkt-x-nike-football-jersey',
+              //     'sorare-football-national-series',
+              //     'draftkings-primetime-nft-series',
+              //     'artofbasketball',
+              //     'sportsbots',
+              //     'lion-club',
+              //     'the-internets-team',
+              //   ]
+              //   return collection.includes(asset.collection.slug)
+              // })
+              .map((nft) => {
+                return (
+                  <div className="collection-card">
+                    <img className="asset-image" src={nft.image_url} />
+                    <div className="nft-name-block">
+                      <p className="collection-name">{nft.collection.name}</p>
+                      <p className="style-name">{nft.name}</p>
+                    </div>
+                  </div>
+                )
+              })}
+          </>
         ) : (
           <h2 className="please-connect">Please connect wallet</h2>
         )}

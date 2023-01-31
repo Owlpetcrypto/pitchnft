@@ -1,0 +1,53 @@
+.group-assets{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap:2rem;
+}
+
+.collect-name{
+    border: 2px solid black;
+    width: fit-content;
+    border-radius: 8px;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    background-color: white;
+    box-shadow: 3px 4px;
+    text-align: center;
+}
+
+.collection-card {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 3px 4px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* padding: 1rem; */
+    margin-bottom: 2rem;
+  }
+  
+  .asset-image {
+    width: 10rem;
+    height: 10rem;
+    object-fit:fill;
+    border: 2px black solid;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    border-radius: 12px;
+  }
+  
+  .nft-name-block{
+    display: flex;
+    flex-direction: column;
+    width: 9rem; 
+    overflow-wrap: break-word;
+    margin-bottom: 1rem;
+  }
+  
+  
+  .style-name {
+    margin-bottom: 3px;
+  }

@@ -125,12 +125,12 @@ button:hover{background-color:orange;}
   overflow-x: hidden;
   overflow-y: auto;
   display:flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-around;
+  flex-direction: column;
+  /* flex-wrap: wrap; */
+  justify-content: flex-start;
   padding: 0 1rem 1rem;
   gap: 1rem;
-  align-content: flex-start; 
+  /* align-content: flex-start;  */
 }
 
 /* .rectangle iframe:first-of-type {
@@ -151,39 +151,6 @@ button:hover{background-color:orange;}
   box-shadow: 3px 4px;
   text-align: center;
   padding: 0 1rem;
-}
-
-.collection-card {
-  background-color: white;
-  border-radius: 12px;
-  box-shadow: 3px 4px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.asset-image {
-  width: 10rem;
-  height: 10rem;
-  object-fit:fill;
-  border: 2px black solid;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  border-radius: 12px;
-}
-
-.nft-name-block{
-  display: flex;
-  flex-direction: column;
-  width: 9rem; 
-  overflow-wrap: break-word;
-}
-
-
-.style-name {
-  margin-bottom: 3px;
 }
 
 .squareone {
