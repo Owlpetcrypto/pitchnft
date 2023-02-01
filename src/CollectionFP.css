@@ -1,0 +1,20 @@
+   .collection-watchlist {
+    width: 100vw;
+    padding: 0rem 1rem;
+    margin: 10px;
+    }
+  
+    .floor-price-box {
+    background-color: white;
+    text-align: center;
+    box-shadow: 3px 4px;
+    border-radius: 10px;
+    border: 2px solid black;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 0.3rem;
+    }
+  
+  .col1 {
+    font-size: 0.9rem;
+  }

@@ -1,5 +1,6 @@
 import './App.css'
 import { useEffect, useState } from 'react'
+import AssetCards from './AssetCards'
 
 function Main({ accounts, setAccounts }) {
   const [data, setData] = useState([])
@@ -86,46 +87,7 @@ function Main({ accounts, setAccounts }) {
           <h2 className="collections">Collections</h2>
         </div>
         {isConnected ? (
-          <>
-            {data
-              // .filter((asset) => {
-              //   const collection = [
-              //     'broadside-episodes',
-              //     'h4h-unilever',
-              //     'vaynersports-pass-vsp',
-              //     'pitch-og-pass',
-              //     'wagmiunited',
-              //     'cool-cats-fc',
-              //     'mpl-official',
-              //     'metasoccer-youth-scouts',
-              //     'firstevernft',
-              //     'footium-football-clubs',
-              //     'rtfkt-x-nike-football-jersey',
-              //     'sorare-football-national-series',
-              //     'draftkings-primetime-nft-series',
-              //     'artofbasketball',
-              //     'sportsbots',
-              //     'lion-club',
-              //     'the-internets-team',
-              //   ]
-              //   return collection.includes(asset.collection.slug)
-              // })
-              .sort(function (nftA, nftB) {
-                return nftB.collection.name - nftA.collection.name
-              })
-              .map((nft) => {
-                return (
-                  <div className="collection-card">
-                    <img className="asset-image" src={nft.image_url} />
-                    <div className="nft-name-block">
-                      <p className="collection-name">{nft.collection.name}</p>
-                      {/* Sorting my collection.name should do the trick? */}
-                      <p className="style-name">{nft.name}</p>
-                    </div>
-                  </div>
-                )
-              })}
-          </>
+          <AssetCards assets={data}></AssetCards>
         ) : (
           <h2 className="please-connect">Please connect wallet</h2>
         )}

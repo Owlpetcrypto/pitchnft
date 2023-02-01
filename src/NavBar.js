@@ -36,7 +36,7 @@ const NavBar = ({ accounts, setAccounts }) => {
         <Link href="https://opensea.io/collection/pitch-og-pass">
           <Image className="SocialLogo" src={Opensea} />
         </Link>
-        <Link>
+        <Link href="http://discord.gg/HhJNjZjupz">
           <Image className="SocialLogo" src={Discord} />
         </Link>
         <Link href="https://twitter.com/pitchweb3">

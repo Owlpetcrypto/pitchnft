@@ -233,35 +233,7 @@ button:hover{background-color:orange;}
   padding: 0 1rem;
 }
 
-.fp-list {
-  width: 100vw;
-  padding: 0rem 1rem;
 
-}
-
-.collection-watchlist {
-
-  margin: 10px;
-  }
-
-  .floor-price-box {
-  background-color: white;
-  text-align: center;
-  box-shadow: 3px 4px;
-  border-radius: 10px;
-  border: 2px solid black;
-  display: flex;
-  justify-content: space-between;
-  padding: 0 0.3rem;
-  }
-
-.col1 {
-  font-size: 0.9rem;
-}
-
-.col2 {
-  font-size: 0.9rem;
-}
 
 
 .squarefour {
@@ -320,7 +292,22 @@ button:hover{background-color:orange;}
   color: aliceblue;
 }
 
+::-webkit-scrollbar {
+  width: .6rem;
+}
 
+::-webkit-scrollbar-track {
+  background:  #49a759;
+  border-radius: 10px;
+  margin-block: .5em;
+ 
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background:#7de279;
+  border-radius: 10px;
+ 
+}
 
 
 

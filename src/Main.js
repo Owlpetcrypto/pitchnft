@@ -1,6 +1,7 @@
 import './App.css'
 import { useEffect, useState } from 'react'
 import AssetCards from './AssetCards'
+import CollectionFP from './CollectionFP'
 
 function Main({ accounts, setAccounts }) {
   const [data, setData] = useState([])
@@ -25,7 +26,7 @@ function Main({ accounts, setAccounts }) {
       }
 
       fetch(
-        `https://api.opensea.io/api/v1/assets?owner=${_account}&order_direction=desc&limit=20&include_orders=false`,
+        `https://api.opensea.io/api/v1/assets?owner=${_account}&order_direction=desc&limit=200&include_orders=false`,
         options,
       )
         .then((response) => response.json())
@@ -118,33 +119,7 @@ function Main({ accounts, setAccounts }) {
         </div>
 
         {isConnected ? (
-          <div className="fp-list">
-            {collections
-              .sort(function (collectionA, collectionB) {
-                return (
-                  collectionB.stats.floor_price - collectionA.stats.floor_price
-                )
-              })
-              .map((collection) => {
-                return (
-                  <div className="collection-watchlist">
-                    <div className="floor-price-box">
-                      <div className="col1">
-                        <p>{collection.name}:</p>
-                      </div>
-                      <div className="col2">
-                        <p>
-                          {Intl.NumberFormat('en-GB', {
-                            maximumFractionDigits: 2,
-                          }).format(collection.stats.floor_price)}
-                          &nbsp; ETH
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                )
-              })}
-          </div>
+          <CollectionFP collections={collections}></CollectionFP>
         ) : (
           <h2></h2>
         )}
