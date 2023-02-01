@@ -303,6 +303,12 @@ button:hover{background-color:orange;}
  
 }
 
+::-webkit-scrollbar-thumb {
+  background:#7de279;
+  border-radius: 10px;
+ 
+}
+
 ::-webkit-scrollbar-thumb:hover {
   background:#7de279;
   border-radius: 10px;
