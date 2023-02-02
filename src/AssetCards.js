@@ -3,10 +3,10 @@ import './AssetCards.css'
 function AssetCards({ assets }) {
   const filtered = assets.filter((asset) => {
     const collection = [
-      'broadside-episodes',
-      'ens',
-      'h4h-unilever',
-      'pixel-beanz-v3',
+      // 'broadside-episodes',
+      // 'ens',
+      // 'h4h-unilever',
+      // 'pixel-beanz-v3',
       'vaynersports-pass-vsp',
       'pitch-og-pass',
       'wagmiunited',
