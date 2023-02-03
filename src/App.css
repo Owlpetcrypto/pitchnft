@@ -144,7 +144,7 @@ button:hover{background-color:orange;}
 .collections {
   color: black;
   border: 2px solid black;
-  width: max-content;
+  width: auto;
   height: 40px;
   border-radius: 10px;
   background-color: #fdfd00;
@@ -168,7 +168,7 @@ button:hover{background-color:orange;}
   color: black;
   border: 2px solid black;
   margin: 20px;
-  width: max-content;
+  width: auto;
   height: 40px;
   border-radius: 10px;
   background-color: #00eaff;
@@ -192,7 +192,7 @@ button:hover{background-color:orange;}
   color: black;
   border: 2px solid black;
   margin: 20px;
-  width: max-content;
+  width: auto;
   height: 40px;
   border-radius: 10px;
   background-color: #ff6b6b;
@@ -224,7 +224,7 @@ button:hover{background-color:orange;}
   color: black;
   border: 2px solid black;
   margin: 20px;
-  width: max-content;
+  width: auto;
   height: 40px;
   border-radius: 10px;
   background-color: #FFA500;
