@@ -168,3 +168,10 @@ function Main({ accounts, setAccounts }) {
   )
 }
 export default Main
+
+// useEffect(() => {
+//   const script = document.createElement('script')
+//   script.setAttribute('src', 'https://platform.twitter.com/widgets.js')
+//   script.setAttribute('async', 'true')
+//   document.body.appendChild(script)
+// }, [])
