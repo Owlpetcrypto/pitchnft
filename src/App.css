@@ -275,15 +275,20 @@ button:hover{background-color:orange;}
 
 iframe {
   border: 0;
-  height:calc(50rem - 7rem);
+  height:calc(50rem - 8rem);
   width: 25rem;
+  border-radius: 5px;
 }
-
-
 
 @media (max-width:1600px) {
   iframe {  
-    width: 50rem;
+    width: 45rem;
+  }
+}
+
+@media (max-width:750px) {
+  iframe {  
+    width: 23.2rem;
   }
 }
 
