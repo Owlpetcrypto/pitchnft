@@ -14,7 +14,7 @@ import Pitchlogo from './assets/pitch_soccer_logo.png'
 import { ethers } from 'ethers'
 import { useState } from 'react'
 
-const NavBar = ({ accounts, setAccounts }) => {
+function NavBar({ accounts, setAccounts }) {
   const isConnected = Boolean(accounts[0])
 
   async function connectAccount() {
@@ -27,30 +27,36 @@ const NavBar = ({ accounts, setAccounts }) => {
   }
 
   return (
-    <nav>
-      <div className="PitchLogo">
-        <Image src={Pitchlogo} h="80%" />
-      </div>
+    <div className="mint-announcement">
+      Mint Phase 2 Opens Mid-February (TBA)
+      <nav>
+        <div className="PitchLogo">
+          <Image src={Pitchlogo} h="80%" />
+        </div>
 
-      <Flex padding="1px" marginRight="0.7%">
-        <Link href="https://opensea.io/collection/pitch-og-pass">
-          <Image className="SocialLogo" src={Opensea} />
-        </Link>
-        <Link href="http://discord.gg/HhJNjZjupz">
-          <Image className="SocialLogo" src={Discord} />
-        </Link>
-        <Link href="https://twitter.com/pitchweb3">
-          <Image className="SocialLogo" src={Twitter} />
-        </Link>
-        {isConnected ? (
-          <Box className="connect-button">Connected</Box>
-        ) : (
-          <Button className="connect-button" onClick={connectAccount}>
-            Connect
-          </Button>
-        )}
-      </Flex>
-    </nav>
+        <Flex padding="1px" marginRight="0.7%">
+          <Link href="https://opensea.io/collection/pitch-og-pass">
+            <Image className="SocialLogo" src={Opensea} />
+          </Link>
+          <Link href="http://discord.gg/HhJNjZjupz">
+            <Image className="SocialLogo" src={Discord} />
+          </Link>
+          <Link href="https://twitter.com/pitchweb3">
+            <Image className="SocialLogo" src={Twitter} />
+          </Link>
+          {isConnected ? (
+            <Box className="connect-button">
+              {accounts[0].slice(0, 5)}...
+              {accounts[0].slice(accounts.length - 4)}
+            </Box>
+          ) : (
+            <Button className="connect-button" onClick={connectAccount}>
+              Connect
+            </Button>
+          )}
+        </Flex>
+      </nav>
+    </div>
   )
 }
 

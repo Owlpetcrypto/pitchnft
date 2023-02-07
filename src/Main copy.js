@@ -1,18 +1,41 @@
 import './App.css'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import AssetCards from './AssetCards'
+import CollectionFP from './CollectionFP'
 
 function Main({ accounts, setAccounts }) {
   const [data, setData] = useState([])
   const [collections, setCollections] = useState([])
   const isConnected = Boolean(accounts[0])
+  const scriptLoaded = useRef(false)
+
 
   // useEffect(() => {
-  //   const script = document.createElement('script')
-  //   script.setAttribute('src', 'https://platform.twitter.com/widgets.js')
-  //   script.setAttribute('async', 'true')
-  //   document.body.appendChild(script)
-  // }, [])
+  //   if (!scriptLoaded.current && isConnected) {
+  //     const script = document.createElement('script')
+  //     script.setAttribute('src', 'https://walls.io/js/wallsio-widget-1.2.js')
+  //     script.setAttribute(
+  //       'data-wallurl',
+  //       'https://my.walls.io/aczv2?nobackground=1&amp;show_header=0',
+  //     )
+  //     script.setAttribute('async', 'true')
+  //     script.setAttribute('data-width', '100%')
+  //     script.setAttribute('data-autoheight', '1')
+  //     script.setAttribute('data-height', '800%')
+  //     script.setAttribute('data-lazyload', '1%')
+  //     // document.body.appendChild(script)
+  //     document.querySelector('.twitter-wrapper').appendChild(script)
+
+  //     //function
+  //     scriptLoaded.current = true
+  //     console.log('scriptLoaded', scriptLoaded.current)
+  //   }
+  //   //depedency array - see if its change
+  // }, [scriptLoaded, isConnected])
+
+  // Object.entries(attributes).forEach(([key, value]) => {
+  //   script.setAttribute(key, value)
+  //  })
 
   useEffect(() => {
     const getData = (_account) => {
@@ -25,7 +48,7 @@ function Main({ accounts, setAccounts }) {
       }
 
       fetch(
-        `https://api.opensea.io/api/v1/assets?owner=${_account}&order_direction=desc&limit=20&include_orders=false`,
+        `https://api.opensea.io/api/v1/assets?owner=${_account}&order_direction=desc&limit=200&include_orders=false`,
         options,
       )
         .then((response) => response.json())
@@ -118,33 +141,7 @@ function Main({ accounts, setAccounts }) {
         </div>
 
         {isConnected ? (
-          <div className="fp-list">
-            {collections
-              .sort(function (collectionA, collectionB) {
-                return (
-                  collectionB.stats.floor_price - collectionA.stats.floor_price
-                )
-              })
-              .map((collection) => {
-                return (
-                  <div className="collection-watchlist">
-                    <div className="floor-price-box">
-                      <div className="col1">
-                        <p>{collection.name}:</p>
-                      </div>
-                      <div className="col2">
-                        <p>
-                          {Intl.NumberFormat('en-GB', {
-                            maximumFractionDigits: 2,
-                          }).format(collection.stats.floor_price)}
-                          &nbsp; ETH
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                )
-              })}
-          </div>
+          <CollectionFP collections={collections}></CollectionFP>
         ) : (
           <h2></h2>
         )}
@@ -152,26 +149,24 @@ function Main({ accounts, setAccounts }) {
 
       <div className="squarefour">
         <h2 className="sport-news">Upcoming News</h2>
-        <div className="twitter-padding">
-          <div className="twitter-wrapper">
-            <a
-              className="twitter-timeline"
-              data-theme="light"
-              href="https://twitter.com/PitchWeb3?ref_src=twsrc%5Etfw"
-            >
-              Tweets by PitchWeb3
-            </a>
+
+        {isConnected ? (
+          <div className="twitter-padding">
+            <div className="twitter-wrapper">
+              <iframe
+                allowfullscreen
+                id="wallsio-iframe"
+                src="https://my.walls.io/aczv2?nobackground=1&amp;show_header=0"
+                // style="border:0;height:800px;width:100%"
+                loading="lazy"
+              ></iframe>
+            </div>
           </div>
-        </div>
+        ) : (
+          <></>
+        )}
       </div>
     </div>
   )
 }
 export default Main
-
-// useEffect(() => {
-//   const script = document.createElement('script')
-//   script.setAttribute('src', 'https://platform.twitter.com/widgets.js')
-//   script.setAttribute('async', 'true')
-//   document.body.appendChild(script)
-// }, [])
